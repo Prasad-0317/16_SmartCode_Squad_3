@@ -22,7 +22,7 @@ def generate_completion(api_key, message):
         "model": MODEL_ID,
         "messages": [{"role": "user", "content": message}],
         "temperature": 0.7,
-        "max_tokens": 300
+        "max_tokens": 1000
     }
     response = requests.post(API_URL, headers=headers, data=json.dumps(data)).json()
     if "choices" in response:
@@ -40,6 +40,7 @@ def generate_pdf(name, skills, experience, option, education, industry, salary_e
     p.setFontSize(12)
     # Add title to the PDF
     p.drawString(250, 750, "Virtual AI Career Coach")
+
     # Write the user's selected options and the response to the PDF
     p.drawString(100, 720, f"Name: {name}")
     p.drawString(100, 690, f"Skills: {skills}")
@@ -71,8 +72,9 @@ def generate_pdf(name, skills, experience, option, education, industry, salary_e
 # Define Streamlit app
 def app():
     st.set_page_config(page_title="Virtual AI Career Coach")
-    st.title("Virtual AI Career Coach")
-    st.write("Welcome to the Virtual AI Career Coach app! Here, you can get personalized career advice based on your skills, experience, career goals, etc. using the ChatGPT API. You are then able to download the responses and selections as a PDF to keep it with you.")
+    st.title("CareerPilot Assistant")
+    st.write("Welcome to CareerPilot Assistant! Here, you can get personalized career advice based on your skills, experience, career goals, etc. You are then able to download the responses and selections as a PDF to keep it with you.")
+    st.image('assistant.png', width=700)
 
     api_key = st.text_input("OpenAI API key", type="password")
     if api_key == "":
