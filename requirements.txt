@@ -11,3 +11,7 @@ youtube-dl
 nltk
 pdfminer3
 spacy
+openai
+reportlab
+reportlab.pdfgen
+reportlab.lib.pagesizes
