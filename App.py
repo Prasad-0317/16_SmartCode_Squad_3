@@ -371,21 +371,6 @@ def run():
                             str(resume_data['no_of_pages']), reco_field, cand_level, str(resume_data['skills']),
                             str(recommended_skills), str(rec_course))
 
-                ## Resume writing video
-                st.header("**Bonus Video for Resume Writing Tips💡**")
-                resume_vid = random.choice(resume_videos)
-                res_vid_title = fetch_yt_video(resume_vid)
-                st.subheader("✅ **" + res_vid_title + "**")
-                st.video(resume_vid)
-
-                ## Interview Preparation Video
-                st.header("**Bonus Video for Interview👨‍💼 Tips💡**")
-                interview_vid = random.choice(interview_videos)
-                int_vid_title = fetch_yt_video(interview_vid)
-                st.subheader("✅ **" + int_vid_title + "**")
-                st.video(interview_vid)
-
-                connection.commit()
             else:
                 st.error('Something went wrong..')
     else:
