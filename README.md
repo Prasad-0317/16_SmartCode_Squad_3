@@ -14,6 +14,7 @@ cater to the company's needs.
 ## AI Career Assistant
 ![WhatsApp Image 2024-03-24 at 19 06 09_055b4e5a](https://github.com/Shreya111111/16_SmartCode_Squad_3/assets/95047638/b29223e3-0e9b-42d9-931c-db3472d25e0d)
 
+![WhatsApp Image 2024-03-24 at 18 58 18_2265e2d2](https://github.com/Shreya111111/16_SmartCode_Squad_3/assets/95047638/2f9e8afe-4ec0-4169-b6e1-f760a1952177)
 
 ![WhatsApp Image 2024-03-24 at 18 58 39_6c29d4e9](https://github.com/Shreya111111/16_SmartCode_Squad_3/assets/95047638/12213585-1460-49db-8d85-9e47fe51e568)
 ## Job Recommendation Using Linkedin
