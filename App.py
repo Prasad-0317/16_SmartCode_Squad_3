@@ -1,6 +1,8 @@
 import streamlit as st
 import nltk
 import spacy
+import webbrowser       
+
 nltk.download('stopwords')
 spacy.load('en_core_web_sm')
 
@@ -8,11 +10,13 @@ import pandas as pd
 import base64, random
 import time, datetime
 from pyresparser import ResumeParser
-from pdfminer3.layout import LAParams, LTTextBox
-from pdfminer3.pdfpage import PDFPage
-from pdfminer3.pdfinterp import PDFResourceManager
-from pdfminer3.pdfinterp import PDFPageInterpreter
-from pdfminer3.converter import TextConverter
+from pdfminer.layout import LAParams, LTTextBox, LTTextLine
+
+from pdfminer.layout import LAParams, LTTextBox
+from pdfminer.pdfpage import PDFPage
+from pdfminer.pdfinterp import PDFResourceManager
+from pdfminer.pdfinterp import PDFPageInterpreter
+from pdfminer.converter import TextConverter
 import io, random
 from streamlit_tags import st_tags
 from PIL import Image
@@ -99,7 +103,7 @@ def insert_data(name, email, res_score, timestamp, no_of_pages, reco_field, cand
 
 st.set_page_config(
     page_title="Smart Resume Analyzer",
-    page_icon='./Logo/SRA_Logo.ico',
+    page_icon='./Logo/logo.ico',
 )
 
 
@@ -108,18 +112,19 @@ def run():
     st.sidebar.markdown("# Choose User")
     activities = ["Normal User", "Admin"]
     choice = st.sidebar.selectbox("Choose among the given options:", activities)
-    # link = '[©Developed by Spidy20](http://github.com/spidy20)'
-    # st.sidebar.markdown(link, unsafe_allow_html=True)
-    img = Image.open('./Logo/SRA_Logo.jpg')
+    
+    if st.sidebar.button("Virtual AI Career Coach"):
+        url = 'http://localhost:8502'
+        webbrowser.open_new_tab(url)
+
+    img = Image.open('./Logo/logo.jpeg')
     img = img.resize((250, 250))
     st.image(img)
 
-    # Create the DB
     db_sql = """CREATE DATABASE IF NOT EXISTS SRA;"""
     cursor.execute(db_sql)
     connection.select_db("sra")
 
-    # Create table
     DB_table_name = 'user_data'
     table_sql = "CREATE TABLE IF NOT EXISTS " + DB_table_name + """
                     (ID INT NOT NULL AUTO_INCREMENT,
@@ -149,7 +154,6 @@ def run():
             show_pdf(save_image_path)
             resume_data = ResumeParser(save_image_path).get_extracted_data()
             if resume_data:
-                ## Get the whole resume data
                 resume_text = pdf_reader(save_image_path)
 
                 st.header("**Resume Analysis**")
@@ -371,6 +375,7 @@ def run():
                             str(resume_data['no_of_pages']), reco_field, cand_level, str(resume_data['skills']),
                             str(recommended_skills), str(rec_course))
 
+               
             else:
                 st.error('Something went wrong..')
     else:
@@ -381,7 +386,7 @@ def run():
         ad_user = st.text_input("Username")
         ad_password = st.text_input("Password", type='password')
         if st.button('Login'):
-            if ad_user == 'machine_learning_hub' and ad_password == 'mlhub123':
+            if ad_user == 'admin' and ad_password == 'admin123':
                 st.success("Welcome Kushal")
                 # Display Data
                 cursor.execute('''SELECT*FROM user_data''')
