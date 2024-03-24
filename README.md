@@ -15,7 +15,7 @@ cater to the company's needs.
 ![WhatsApp Image 2024-03-24 at 18 58 18_2265e2d2](https://github.com/Shreya111111/16_SmartCode_Squad_3/assets/95047638/2ef73df2-7445-4dc8-a0df-a3edc0cad964)
 
 ![WhatsApp Image 2024-03-24 at 18 58 39_6c29d4e9](https://github.com/Shreya111111/16_SmartCode_Squad_3/assets/95047638/12213585-1460-49db-8d85-9e47fe51e568)
-## Job Recommendation
+## Job Recommendation Using Linkedin
 
 ![main · Streamlit](https://github.com/Shreya111111/16_SmartCode_Squad_3/assets/95047638/eb31b1b8-f146-4b6f-8c14-3dc377dff7e0)
 ## Navigating to Linkedin Page
